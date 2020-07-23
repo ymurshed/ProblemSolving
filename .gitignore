@@ -1,6 +1,23 @@
-Codility/CodilitySolution/CodilitySolution/bin/
-Codility/CodilitySolution/CodilitySolution/obj/
-Codility/Lesson 1 - Iterations/BinaryGap/.vs/
-Codility/Lesson 1 - Iterations/BinaryGap/BinaryGap/bin/
-Codility/Lesson 1 - Iterations/BinaryGap/BinaryGap/obj/
-Codility/CodilitySolution/.vs/
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio 2015 cache/options directory
+.vs/
