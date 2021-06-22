@@ -22,16 +22,21 @@ namespace LeetcodeConsole.HashTable
                 }
                 else
                 {
-                    if (uniqueChars.Count > maxSubString.Length)
-                    {
-                        maxSubString = string.Join("", uniqueChars); // get the longest sub-string without repetitive chars
-                        Console.WriteLine(maxSubString);
-                    }
+                    maxSubString = GetMaxSubString(uniqueChars, maxSubString);
                     uniqueChars.Remove(s[start++]); // increase 'start' just to make the max count consistent in the if block
                 }
             }
 
+            GetMaxSubString(uniqueChars, maxSubString);
             return maxLength;
+        }
+
+        private static string GetMaxSubString(IReadOnlyCollection<char> uniqueChars, string maxSubString)
+        {
+            if (uniqueChars.Count <= maxSubString.Length) return maxSubString;
+            maxSubString = string.Join("", uniqueChars); // get the longest sub-string without repetitive chars
+            Console.WriteLine(maxSubString);
+            return maxSubString;
         }
 
         public void Execute()
@@ -43,8 +48,8 @@ namespace LeetcodeConsole.HashTable
 
             try
             {
-                //var s = "abcadb";
-                var s = "pwwkew";
+                var s = "abcadb";
+                //var s = "pwwkew";
                 Console.WriteLine(LengthOfLongestSubstring(s));
             }
             catch (Exception e)

@@ -14,7 +14,8 @@ namespace LeetcodeConsole
                 "HashTable", new List<string>
                 {
                     "TwoSum_1",
-                    "LongestSubstringWithoutRepeatingCharacters_3"
+                    "LongestSubstringWithoutRepeatingCharacters_3",
+                    "MaximumErasureValue_1695"
                 }
             }
         };
@@ -27,7 +28,7 @@ namespace LeetcodeConsole
 
         public static void Main(string[] args)
         {
-            var ob = Activator.CreateInstance($"{NameSpace}", $"{NameSpace}.{CurrentTag}.{TagClassMapping[CurrentTag][1]}");
+            var ob = Activator.CreateInstance($"{NameSpace}", $"{NameSpace}.{CurrentTag}.{TagClassMapping[CurrentTag][2]}");
             var p = ob.Unwrap();
             var t = p.GetType();
             var method = t.GetMethod(Method);
