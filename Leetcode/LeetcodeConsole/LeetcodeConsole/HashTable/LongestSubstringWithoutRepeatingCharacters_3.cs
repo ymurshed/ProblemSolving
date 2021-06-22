@@ -8,23 +8,30 @@ namespace LeetcodeConsole.HashTable
         public int LengthOfLongestSubstring(string s)
         {
             var n = s.Length;
-            int ans = 0, i = 0, j = 0;
-            var set = new HashSet<char>();
-            
-            while (i < n && j < n)
+            int maxLength = 0, start = 0, end = 0;
+            var uniqueChars = new List<char>();
+            var maxSubString = "";
+
+
+            while (start < n && end < n)
             {
-                if (!set.Contains(s[j]))
+                if (!uniqueChars.Contains(s[end]))
                 {
-                    set.Add(s[j++]);
-                    ans = Math.Max(ans, j - i);
+                    uniqueChars.Add(s[end++]);
+                    maxLength = Math.Max(maxLength, end - start);
                 }
                 else
                 {
-                    set.Remove(s[i++]);
+                    if (uniqueChars.Count > maxSubString.Length)
+                    {
+                        maxSubString = string.Join("", uniqueChars); // get the longest sub-string without repetitive chars
+                        Console.WriteLine(maxSubString);
+                    }
+                    uniqueChars.Remove(s[start++]); // increase 'start' just to make the max count consistent in the if block
                 }
             }
 
-            return ans;
+            return maxLength;
         }
 
         public void Execute()
@@ -36,6 +43,7 @@ namespace LeetcodeConsole.HashTable
 
             try
             {
+                //var s = "abcadb";
                 var s = "pwwkew";
                 Console.WriteLine(LengthOfLongestSubstring(s));
             }
